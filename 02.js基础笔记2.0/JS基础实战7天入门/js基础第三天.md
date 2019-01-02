@@ -138,9 +138,16 @@ console.log(star);
 
 ### 5.打印倒三角
 
-#### 1.使用for循环 打印 倒 三角形  9行九列
+#### 1.使用for循环 打印 倒 三角形  九行九列
 
-```
-
+```js 
+var star = '';
+for(i=0;i<9;i++){
+    for(j=0;j=9-i;j++){
+        star += '☆';
+    }
+     star += '\n';
+}
+console.log(star);
 ```
 
