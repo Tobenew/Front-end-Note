@@ -151,3 +151,17 @@ for(i=0;i<9;i++){
 console.log(star);
 ```
 
+### 6.打印九九乘法表
+
+```js
+var str = '';
+// 外层for控制 行数 9 行
+for (var i= 1; i <= 9; i++){
+    for (var j = 1; j <= i; j++){
+        str += j + "x" + i + "=" + i * j +"\t"
+    }
+    str += '\n';
+}
+console.log(str);
+```
+
