@@ -6,6 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>自执行函数</title>
     <script>
+        //1.函数不调用,自己不执行(正常的函数)
+        //2.自执行函数
+        function fn(){};
+        //fn  是函数名的意思  fn()是调用函数的意思
+        console.log(fn);  //输出的是  整个函数
+        console.log(fn());//输出的是 fn函数的返回值
+        //3.自执行函数的由来
+        function fn(){}
+        fn();
+        //fn === function(){}  带入上面的  fn();
+        (function(){})();
         //匿名函数可以作为自启动函数,定义后立即自执行
         (function(){
             alert("我是匿名函数,被自动执行了!");

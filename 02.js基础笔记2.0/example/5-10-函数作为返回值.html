@@ -6,7 +6,16 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <script>
+        //1.函数的返回值
         
+        //2.函数是可以作为返回值使用的
+        function backFn(){
+            return function () {
+                console.log("我是作为返回值使用的");                
+            }
+        }
+        var fn = backFn();
+        fn();
     </script>
 </head>
 <body>
