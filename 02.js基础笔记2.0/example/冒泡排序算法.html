@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>冒泡拍排序算法</title>
+    <script>
+        var arr = [213,532,534,65,87,25,876,242,867,9,543,8758];
+        for (var i = 0; i < arr.length; i++){
+            for(var j= 0;j < arr.length - i -1;j++){
+                if (arr[j] < arr[j+1]){
+                    var temp = arr [j];
+                    arr[j] = arr[j+1];
+                    arr[j+1] = temp;
+                }
+            }
+        }
+        console.log(arr);
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

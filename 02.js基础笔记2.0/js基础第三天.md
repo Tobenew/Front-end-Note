@@ -165,3 +165,110 @@ for (var i= 1; i <= 9; i++){
 console.log(str);
 ```
 
+## 3.while循环练习
+
+​	[1.用console.log()在控制台打印 10 遍 "Hi ,有空么? "]()
+
+```js
+var numCount = 1;	//用来记录循环次数
+while (numCount <= 10){	//判断循环的次数是否达到我们的条件
+    console.log("Hi ,有空么? ");	//要执行额循环体,业务代码
+    numCount++;		//做条件改变,否则  循环会出现[死循环]!
+}
+```
+
+​	2.打印人的一生从1岁到100岁	
+
+```js
+var num = 1;
+while (num < =100){
+    console.log("这个人"+num+"岁了");
+    num++;  
+}
+```
+
+​	3.计算1-100之间所有数的和
+
+```js
+var countNum = 1;//作为1-100的每个数
+var numSum = 0;	//用来记录 相加 结果
+while (countNum <= 100){
+    numSum += countNum;
+    countNum++;
+}
+console.log("1-100之间所有数的和为"+numSum)
+```
+
+## 4.do-while循环
+
+### 	1.do-while基本语法
+
+```js
+//1.语法
+do {
+    //循环体;
+}while(循环条件)
+```
+
+### 	2.do-while 练习
+
+1.用console.log()模拟吃两个包子案例
+
+```
+var i = 1;
+do{
+    console.log("我吃了"+i+"个包子");
+    i++;
+} while(i <= 2);
+```
+
+2.使用do- while循环:输出你喜欢我么?(y/n):'',知道输入y退出,否则继续询问.(提示:使用prompt )
+
+```js
+do {
+    var ask = prompt("输出你喜欢我么?(y/n):");
+}while (ask !== "y")
+    alert("我也喜欢你啊!");
+```
+
+## 5.三种循环的区别
+
+```js
+while和do-while都是在不确定循环执行次数的情况下使用
+do-while是先执行一次再判断
+while是先判断,再执行
+
+for循环适合在循环范围确定的情况下使用.
+```
+
+## 6.continue和break
+
+```js
+break:立即跳出整个循环，即循环结束，开始执行循环后面的内容（直接跳到大括号）
+continue:立即跳出当前循环，继续下一次循环（跳到i++的地方）
+```
+
+1.模拟 吃5个包子，第3个有虫子，就扔掉第3个，继续吃第4个第5个包子。
+
+```js
+ for (var i = 1; i <= 5; i++) {
+     if (i == 3) {
+         console.log('这个包子有虫子，扔掉');
+         continue; // 跳出本次循环  跳出的是 第 3次 循环 
+     }
+     console.log('我正在吃第' + i + '个包子呢');
+ }
+```
+
+2.模拟 吃5个包子，吃到第3个后，就不再吃后面的包子
+
+```js
+  for (var i = 1; i <= 5; i++) { 
+      if (i == 3) {               
+        break; // 直接退出整个for 循环  跳到 整个for 下面的语句           
+      }            
+      console.log('我正在吃第' + i + '个包子呢');       
+  }
+```
+
+## 7.代码调试

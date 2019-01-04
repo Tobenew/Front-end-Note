@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>函数返回值</title>
+    <script>
+        // 1. 体会函数的返回值,两个数的求和操作
+        function getSum(num1,num2){
+            return num1 + num2;
+            alert (num1 + num2);  //因为有return,所有alert 不会被执行
+        }
+        getSum(11,22);
+        getSum(11,33);
+        //2.注意点
+        //  return 除了返回值之外  还有终止  我们 函数的操作
+        //  return 只能返回一个值
+        //  我们经常用一个变量来接受返回的结果
+        var num= getSum(1,2);
+        console.log(num);
+        //  如果函数没有return返回,则调用这个函数的结果是undefined
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
