@@ -4,7 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>new关键字执行过程</title>
+    <script>
+        //new 关键字 可以利用构造函数 产生 一个新的对象
+        function Stars(){
+            this.name = name;
+            this.age = age;
+            this.sayHi=function(){
+                console.log("Hi"); 
+            }
+        }
+        var ldh = new Stars("刘德华",18);
+        //1.new 构造函数 可以产生一个新的空对象
+        //2.this 就指向我们创建的这个空对象
+        //3.执行构造函数里面的代码(完成赋值操作)
+        //4.返回这个对象
+    </script>
 </head>
 <body>
     

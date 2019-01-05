@@ -4,7 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>两种创建对象总结</title>
+    <script>
+        //1.以前我们创建对象,一次只能创建一个
+        var ldh = {
+            name = "刘德华",
+            age= 18,
+            sex = "男",
+            sing : function () {
+                console.log("冰雨");  
+            }
+        }
+        //2.以为这些对象有相同的属性和方法,我们能不能封装一个函数?
+        //3.因为我们可以自定义一个函数,来封装多个对象相同的属性和方法
+        //但是这个函数封装的是对象,成为构造函数
+    </script>
 </head>
 <body>
     

@@ -4,7 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>this的指向问题</title>
+    <script>
+        //this的指向问题   一般情况下this指向的是它的调用者
+        //1.this在函数中的指向
+        function fn(){
+            console.log(this);            
+        }
+        fn();
+        //2.this在对象中的指向
+        var obj = {
+            name:"andy",
+            sayHi:function(){
+                console.log(this);
+                that = this;
+            }
+        }
+        obj.sayHi();
+        console.log(that === obj);
+        //3.this在构造函数中的指向
+        function Fn(){
+            console.log(this);
+            that = this;
+        }
+        var ff = new Fn();
+        console.log(that === ff);
+        
+    </script>
 </head>
 <body>
     

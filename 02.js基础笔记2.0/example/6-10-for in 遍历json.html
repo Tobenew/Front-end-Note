@@ -4,7 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>for in遍历json</title>
+    <script>
+        //JSON (JavaScript Object Notation)是一种轻量级的数据交换格式,易于人阅读和编写
+        var json = {
+            "id":1,
+            "name":"Andy",
+            "age":18,
+            "address":"山东"
+        }
+        //1.json的写法基本跟对象一致  采取的是键值对
+        //2.json里面要求所有的属性名 添加双引号 后面的值 如果是字符型也要添加双引号
+        //遍历json 用 for in
+        for(var k in json){
+            console.log(k);//输出的是json属性名
+            console.log(json[k]);//输出的是json属性名
+        }
+    </script>
 </head>
 <body>
     

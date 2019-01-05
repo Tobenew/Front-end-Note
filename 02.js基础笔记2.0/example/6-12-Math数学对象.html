@@ -4,7 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Math数学对象</title>
+    <script>
+        //Math内置对象 不会一个构造函数  所以我们直接使用,不需要new
+        //1.圆周率
+        console.log(Math.PI);
+        //2.求最大值 最小值
+        console.log(Math.max(2,543,2362,654,765));
+        console.log(Math.min(2,543,2362,654,765));
+        console.log(Math.min("2","543",2362,654,765));
+        console.log(Math.max());//显示-Infinity
+        //3.三个Math取整方法
+        //(1)Math.floor  向下取整函数 floor
+        console.log(Math.floor(1.1));
+        console.log(Math.floor(1.9));
+        console.log(Math.floor(-1.1));
+        console.log(Math.floor(-1.9));
+        //(2)Math.ceil  向上取整函数 
+        console.log(Math.ceil(1.1));
+        console.log(Math.ceil(1.9));
+        console.log(Math.ceil(-1.1));
+        console.log(Math.ceil(-1.9));
+        //(3)Math.round  就近取整函数  -1.5 .5是往大了取整   -1
+        console.log(Math.round(1.1));
+        console.log(Math.round(1.9));
+        console.log(Math.round(-1.1));
+        console.log(Math.round(-1.5));  ///////
+        console.log(Math.round(-1.55));  ///////
+        console.log(Math.round(-1.9));
+        console.log(Math.round(-20.5));  //-20
+        console.log(Math.round(20.5));  //21
+        //4.Math生成随机数的方法Math.random(随机抽奖,随机点名) [0,1) 0 =< x < 1
+        //这个随机函数后面不用加参数
+        console.log(Math.random());
+        
+    </script>
 </head>
 <body>
     

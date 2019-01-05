@@ -4,7 +4,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>自定义构造函数</title>
+    <script>
+        
+        //构造函数创建,构造函数的语法规范
+            function 构造函数(参数1,参数2){构造函数名的首字母要大写
+            this.属性名 = 属性值;
+            this.方法名 = function(){}       
+            }
+            //调用构造函数 new 构造函数名();
+        //默认参数名字就是属性名字,为了区分对象的name使用this,对象创建在外部创建
+        function Dog(name,type,age,color){
+            //this 动态的给对象增加成员
+            //this 指向了当前对象
+            this.name = name;
+            this.type = type;
+            this.age = age;
+            this.color = color;
+            this.bark = function(){}
+            this.eat = function (){}
+        }
+        //使用构造函数 调用构造函数  我们需要使用 new
+        var beibei = new Dog("beibei","jinmao",3,"yellow");
+        console.log(beibei.color);
+
+        function Star(name,sex,age,){
+            this.name = name;
+            this.sex = sex;
+            this.age = age;
+            this.sing = function () {
+                console.log("唱歌");
+                return "fanhui"
+              }
+        }
+        var ldh = new Star("刘德华","男",46);
+        var zxy = new Star("张学友","男",44);
+        console.log(ldh.name);
+        console.log(ldh.sex);
+        console.log(ldh.age);
+        ldh.sing();
+        console.log(ldh.sing);
+        console.log(ldh.sing());
+    </script>
 </head>
 <body>
     
