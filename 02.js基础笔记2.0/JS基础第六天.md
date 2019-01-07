@@ -154,7 +154,7 @@ var xiaoha = new Dog{'小哈','哈士奇',3,'黑白'};
 
 注意:this只有在调用的时候才能确定是谁
 
-5.遍历对象
+### 5.遍历对象
 
 for in 语句对于数组或者对象的属性进行循环操作.
 
@@ -165,4 +165,141 @@ for (变量 in 对象名字) {
 ```
 
 - 这个变量是自定义  符合命名规范 但是一般我们都写 k  或者 key
+
+- 后面的是对象也可以是数组,因为数组也属于对象
+
+```js
+var obj = {
+    name : 'andy',
+    age 18,
+    sex:'男';
+}
+console.log(obj.length);   //undefined
+for (var k in obj){
+    console.log(k);		//输出属性名
+    console.log(obj[k])	//输出属性值
+}
+```
+
+### 6.遍历JSON
+
+```js
+JSON是一种轻量级的数据交换格式,在行业中大量使用.
+格式:   属性:值
+注意: JSON的属性和值都需要用双引号包括.
+var json = {
+    "id" : "1",
+    "name" : "andy",
+    "age" : "18",
+    "tel" : "123456"
+}
+for (var k in json){
+    console.log(k);	//这里的k 是属性名
+    console.log(obj[k]);	//这里obj[k]是属性值
+}
+```
+
+## 3.内置对象
+
+```
+内置对象:JS语言本身已经提供了一些功能给你使用,你只要学习怎么看说明书用就行.
+一般看文档看以下几个方面:
+    1.对象如何创建(是直接使用还是,需要new创建)
+    2.对象有哪些属性,对应的功能是什么
+    3.对象有哪些方法,对应的作用和代码是什么
+    4.抄代码验证功能
+    5.出了错误排错,并且查看文档或者百度
+常见的内置对象:
+Math	数学对象
+Array	数组对象
+Date	时间对象
+String	字符串对象
+```
+
+### 1.Math对象
+
+```js
+Math.PI()					//圆周率
+Math.floor()				//向下取整
+Math.ceil()				 	//向上取整
+Math.round()				//四舍五入,就近取整 注意-3.5	结果是-3
+Math.abs()					//绝对值
+Math.max()/Math.min()		 //求最大和最小值
+Math.sin()/Math.cos()		 //正弦/余弦
+Math.power()/Math.sqrt()	 //求指数次幂/求平方根
+```
+
+```js
+//生成0-1之间的随机数
+Math.random()	//生成0-1之间的随机数  取值范围是[0,1)
+//生成1-100之间的随机数,100要可取
+Math.random()*100+1    生成1-101之间的随机数
+Math.floor(上面的结果);	向下取整,就可以得到1-100之间的随机数
+
+//万能公式
+Math.floor(Math.random()*(max - min + 1 ) + min);
+```
+
+### 2.Math对象练习
+
+#### 1.求10-20(包括10和20)之间的随机整数
+
+```js
+function getRandom(min,max){
+    return Math.floor(Math.random()*(max - min + 1 ) + min);
+}
+console.log(getRandom(10-20));
+```
+
+#### 2.随机生成颜色RGB
+
+```js
+function getRandom(min,max){
+    return Math.floor(Math.random()*(max - min + 1 ) + min);
+}
+function getRGB(min,max){
+    var R = getRandom(min,max);
+    var G = getRandom(min,max);
+    var B = getRandom(min,max);
+    return 'rgb(' + R + ',' + G + ',' + B + ')';
+}
+```
+
+#### 3.自己实现求最大值最小值对象
+
+```js
+var myMath = {
+    PI:3.1415926;
+    max:function(){
+   	var max = arguments[0];
+        for(var i = 0;i < arguments.length; i++){
+            if(max < arguments[i]){
+               max = arguments[i];
+            }
+        }
+        return max;
+	}
+	 max:function(){
+   	var min = arguments[0];
+        for(var i = 0;i < arguments.length; i++){
+            if(min > arguments[i]){
+               min = arguments[i];
+            }
+        }
+        return min;
+	}
+};
+console.log(myMath.max(1,6,8,9));
+console.log(myMath.min(1,6,8,9));
+```
+
+### 3..Date内置对象
+
+```js
+//内置Date时间对象
+var now = new Date();
+console.log(now);
+//如果Date()中不写参数,就返回当前时间,如果写参数就返回括号中的时间
+//new Date('20150501') 或者 new Date(2015/5/1)
+```
 

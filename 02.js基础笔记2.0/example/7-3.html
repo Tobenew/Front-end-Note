@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        //添加/删除数组方法  push()  pop()  unshift()  shift()
+        //我们需要注意以下几点,1.这些方法后面是否跟参数 2.是否修改原数组  3.返回值是什么
+        //1.push(参数1,参数2...) 给我们数组添加一个或者多个元素.
+        var arr = [1,2];
+        arr.push(3);    ///把3放到数组后面
+        console.log(arr.push(4));   //添加新数组元素,并且返回新数组长度
+        
+        console.log(arr);
+        
+        //push 总结  push 给我们数组末尾追加1个或者多个元素  有参数  修改元素组 返回数组的长度
+
+        //2.pop()  从数组中删除数组最后一个元素,  并且只删除一个;没参数,返回删除元素的值
+        var arr1 = ["a","b","c","d"];
+        console.log(arr1.pop());
+        console.log(arr1);
+
+        //unshift()  将一个或者多个元素添加到数组开头,并且返回新数组长度
+        var arr2 = [1,2,3,4];
+        console.log(arr2.unshift("a",3,2));
+        console.log(arr2);
+
+        //shift()  删除数组第一个元素
+        var arr3 = ["a","b","c"];
+        console.log(arr3.shift());
+        console.log(arr3);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -4,7 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>倒计时</title>
+    <script>
+        function getCountTime (endTime){
+            var d,h,m,s;
+            //1.倒计时时间就是用户输入时间  减去当前的时间   就是倒计时
+            //2.注意,得到的是毫秒数,然后把这个毫秒数转换成对应的天数
+            var countTime = parseInt((new Date(endTime) - new Date()) / 1000);
+            console.log(countTime);
+            //3.把得到的秒数 转换 当前的天数 时分秒
+            d = parseInt(countTime / 60 / 60 /24);
+            h = parseInt(countTime / 60 / 60 % 24);
+            m = parseInt(countTime / 60 % 60);
+            s = parseInt(countTime  % 60);
+            return '还剩下' + d +'天' + h + '小时' + m + '分' + s + '秒';
+        }
+        console.log(getCountTime('2019-1-8 17:30'));
+    </script>
 </head>
 <body>
     
