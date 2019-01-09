@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>url解析为对象案例</title>
+    <script>
+        //思路分析:name = zs&age=18 ...
+        function params(url){
+            var arr = url.split('?');
+            console.log(arr);
+            var params = arr[1];
+            
+            var arr1 = params.split('&');
+            console.log(arr1);
+            
+            //3.因为arr1里面有多个元素,都要分别切割,所以我们需要遍历循环
+            var o = {};
+            for (var i= 0;i < arr1.length;i++){
+                var newArr = arr1[i].split('=');
+                console.log(newArr);
+                o[newArr[0]] = newArr[1];
+            }
+            return o;
+        }
+        console.log(params('http://www.ithema.com/login?name=zs&age=18'));
+        ;
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

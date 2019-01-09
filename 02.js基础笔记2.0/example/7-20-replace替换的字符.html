@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>replace替换的字符</title>
+    <script>
+        //replace()  方法用于放在字符串总用一些字符替换另一些字符
+        //语法格式  replace(被替换的字符,替换的字符)  一次只能替换一个
+        //一个替换
+        var str = 'Andy';
+        console.log(str.replace('n','o'));
+         
+        //全部替换
+        var str = 'fsadguioipoighaoahopop';
+        while (str.indexOf('o') !== -1){
+            str = str.replace('o','!');
+        }
+        console.log(str);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>根据位置获取字符</title>
+    <script>
+        //根据位置获取字符
+        var str = 'Andy';
+        //1.charAt(index) index 索引号
+        console.log(str.charAt(2));//d
+        for (var i = 0;i <str.length;i++){
+            console.log(str.charAt(i));
+        }
+        //2.charCodeAt(index)  返回的是  当前字符的ASCII码
+        console.log(str.charCodeAt(0));
+        //以后我们经常用这个方法判断用户按了什么键
+        //3.str[index] 类似于数组的方法
+        console.log(str);
+        var s = new String ('andy');
+        console.log(s);
+        for (var i = 0;i <str.length;i++){
+            console.log(str[i]);
+        }
+        
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
