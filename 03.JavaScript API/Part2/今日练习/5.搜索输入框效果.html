@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        input{
+            margin:100px;
+        }
+        .box{
+            width: 171px;
+            height: 100px;
+            border:1px solid red;
+            border-top: none;
+            position: absolute;
+            left:108px;
+            top:128px;
+
+        }
+        .hide{
+            display: none;
+        }
+        .show{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" placeholder="请输入搜索内容" id="txt">
+    <div class="box hide"></div>
+    <script>
+        var myTxt = document.getElementById('txt');
+        var myBoxs = document.getElementsByClassName('box');
+        //获得焦点事件
+        myTxt.onfocus=function(){
+           console.log(123)
+           myBoxs[0].className=' box show'
+        }
+        //失去焦点事件
+        myTxt.onblur=function(){
+            console.log(234);
+            myBoxs[0].className='box hide';
+        }
+    </script>
+</body>
+</html>

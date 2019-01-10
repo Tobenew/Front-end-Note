@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    1.问题
+        兼容性: innerText  textContent
+
+        <!-- 获取标签文本 -->
+        function myText(标签){
+            如果该标签有innerText, 我就用innerText获取值,并返回
+            如果该标签没有innerText,我就用textContent获取值,并返回
+
+            if(typeof 标签.innerText ==='string'){
+                return 标签.innerText;
+            }else{
+                return 标签.textContent;
+            }
+        }
+
+    
+</body>
+</html>

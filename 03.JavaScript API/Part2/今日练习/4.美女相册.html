@@ -1,0 +1,98 @@
+
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        body {
+            font-family: "Helvetica","Arial",serif;
+            color: #333;
+            background-color: #ccc;
+            margin: 1em 10%;
+        }
+        h1 {
+            color: #333;
+            background-color: transparent;
+        }
+        a {
+            color: #c60;
+            background-color: transparent;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        ul {
+            padding: 0;
+        }
+        li {
+            float: left;
+            padding: 1em;
+            list-style: none;
+        }
+        #imagegallery {
+        }
+
+        #imagegallery a {
+            margin: 0px 20px 20px 0px;
+            padding: 0px;
+            display: inline;
+        }
+
+        #imagegallery a img {
+            border: 0;
+        }
+    </style>
+</head>
+<body>
+<h2>
+    美女画廊
+</h2>
+
+<div id="imagegallery">
+    <a href="images/1.jpg" title="美女A" >
+        <img src="images/1-small.jpg" width="100px" alt="美女1" />
+    </a>
+    <a href="images/2.jpg" title="美女B">
+        <img src="images/2-small.jpg" width="100px" alt="美女2" />
+    </a>
+    <a href="images/3.jpg" title="美女C">
+        <img src="images/3-small.jpg" width="100px" alt="美女3" />
+    </a>
+    <a href="images/4.jpg" title="美女D">
+        <img src="images/4-small.jpg" width="100px" alt="美女4" />
+    </a>
+</div>
+
+<div style="clear:both"></div>
+
+<img id="image" src="images/placeholder.png" alt="" width="450px" />
+
+<p id="des">选择一个图片</p>
+    <script>      
+        //点击a标签,并获得a标签href的大图地址,并获得a标签的title描述信息
+        //将大图地址,设置给 大图img标签, 将描述信息,设置给p标签。
+
+        //给所有的a标签添加事件
+        //1.找标签: 找所有的a
+        var myBox = document.getElementById('imagegallery');  //找div盒子
+        //找div下面的所有a标签
+        var myLinks = myBox.getElementsByTagName('a');
+        //找到大图标签和p标签
+        var myBigImg = document.getElementById('image');
+        var myP = document.getElementById('des');
+        //使用for循环,给每个a标签添加事件
+        for(var i=0; i<myLinks.length; i++){
+            myLinks[i].onclick=function(){
+                //在操作页面对象的事件中不建议直接使用i变量, 使用this就表示不同的a标签
+                // alert(i);
+                console.log(this.href+'-----'+this.title);
+               
+               myBigImg.src = this.href;
+               myP.innerText =this.title;
+
+                return false;
+            }
+        }
+    </script>
+</body>
+</html>

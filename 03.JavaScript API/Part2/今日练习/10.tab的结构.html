@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style:none;
+        }
+        .box{
+            width: 500px;
+            height: 500px;
+            border: 1px solid #000;
+            margin: 50px auto 0;
+        }
+        .box .title{
+            height: 50px;
+            border-bottom:1px solid red;
+        }
+        .box .title li{
+            width: 100px;
+            height: 50px;
+            float: left;
+            text-align: center;
+            line-height: 50px;
+            background-color: deeppink;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        .box .title .current{
+            background-color: orange;
+        }
+        .box .content{
+            height: 449px;
+            background-color: skyblue;
+        }
+        .box .content div{
+            height: 449px;
+            background-color: green;
+            display: none;
+        }
+        .box .content .active{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <!-- 大盒子> 上盒子+下盒子 -->
+    <div class="box">
+        <div class="title" id="box-t">
+            <ul>
+                <li class="current">首页</li>
+                <li>新闻</li>
+                <li>军事</li>
+                <li>娱乐</li>
+                <li>科技</li>
+            </ul>
+        </div>
+        <div class="content" id="box-b">
+            <div class="active">首页内容</div>
+            <div>新闻内容</div>
+            <div>军事内容</div>
+            <div>娱乐内容</div>
+            <div>科技内容</div>
+        </div>
+    </div>
+</body>
+</html>
