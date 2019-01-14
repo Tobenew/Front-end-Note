@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="button" value="按钮" id="btn">
+    <script src="common.js"></script>
+    <!-- <script src="user1.js"></script>
+    <script src="user2.js"></script> -->
+    <script>
+    //addEventListener  添加事件监听  解决无法给一个事件两个函数
+    //有兼容性问题  IE9以上才支持
+        var btn = document.getElementById('btn');
+        btn.addEventListener('click',function () {
+            alert("hello user1");
+        })
+        btn.addEventListener('click',function () {
+            alert("hello user2");
+            })
+    //第三种  attachEvent
+    </script>
+</body>
+</html>

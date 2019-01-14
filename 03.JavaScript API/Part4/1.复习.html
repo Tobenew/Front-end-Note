@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    1.学习的不错,但是自己不知道.-----沟通
+    2.学习的一般,但是心里总有一股想当第一的心态.
+    3.学习很差的,天天去跟别人说我学的不好,
+
+    1.单词是否看的懂
+    2.简单的案例是否会练
+    3.你觉得学不会的原因是什么? 别人学的会的原因是什么?
+
+    ----------------------------------------------------------------------------------
+    问题1:上课老师听得懂,自己敲10遍,第二天不知道自己敲什么? 
+    解决方案:少敲代码,3遍. 每一行都写注释,每个单词都中文翻译.
+    
+    问题2:每天单词量比较大,有些单词没明白,自己再回头看不知道啥意思:  
+    解决方案:看视频的时候把单词写在本子上,然后写上中文,只要会读.
+
+
+    
+    问题3:今天讲的,前一天知识忘得差不多了.  js四天,第五天,根本就没搞懂.,WebAPI第二天,第三天没搞定.
+    解决办法: 因为没有抓住重点: 1.你觉得所有的东西都重要,并且以前知识也很重要.重点是当天的知识,然后把之前不会的知识列一个清单
+
+    问题4:单词不认识,不知道啥意思,容易搞混,当前this不懂,new不懂,tab菜单切换(排它,思维逻辑)
+    解决办法: 当天问题,当天解决,问老师.
+
+    问题5:知道要做什么?思维步骤知道,但是不知道怎么写代码,对象和函数不是很好,单词.---基本语法薄弱
+    解决办法:去练基本语法,不练案例
+
+        this是当前对象.  new 用来创建对象.
+    
+
+    好的学习方法:
+        1.看视频的时候拿个本子记:概念,单词.
+        2.看视频的时候听重点,忽略掉不重要的知识,逻辑不要求会,只要求看的懂,听得懂
+        3.老师讲的时候,复习思路和重点.听清楚哪些要练习.
+        4.抄笔记,预习
+
+         -->hello  1.读音  2.你好  3.抄单词,  忘记是一种非常正常的现象.-----双语听写.
+       
+         5.列一个知识清单: 把不会的知识点,不会的案例列一个清单,然后逐渐去解决.
+            1.不会的知识点
+            2.不会的案例.
+
+        6.知道有问题,但是不解决.
+
+        1.不懂就问题
+        2.懂了就练
+        3.不知道练啥再问.
+
+
+    1.看视频的时候做笔记,记知识点,函数的三种写法,
+    2.老师在讲的时: 思路,写法
+    3.晚自习: 抄笔记,做案例,预习
+
+    1.记住关键的东西,讲兼容性问题,兼容性会简单听一下.
+    2.思路
+    3.做案例,按照笔记顺序做案例,然后做完对比
+
+    1.看视频,每个知识之前都扯了一大堆,然后重要的知识点,现在学的有理论,逻辑,逻辑需要慢慢的了解,觉得不懂是逻辑跟不上.
+      不要觉得很难,知识点就融汇贯通
+
+      
+    2.老师讲的肯定在听,讲重点
+    3.着重练的几个,预习
+
+    1.学不会的人,关注单词看不懂------------基本代码的练习.()
+    2.学的会的同学从来不关注单词.
+    ------------------------------------------------------------------------------------------------
+    1.webAPI三天学了哪些知识?
+         第一天:
+            1.获取标签元素
+                通过id找标签  document.getElementById()
+                通过标签名找标签 document.getElementsByTagName()
+            2.添加点击事件
+                标签.onclick=function(){}
+            
+            3.获取标签的属性
+                获取属性值:标签.属性名   myImg.src  myBox.className  myLink.href myInput.value
+                设置属性: 标签.属性名=新的值;  myImg.src='b.jpg'
+
+                特殊值: myInput.checked  (checked selected disabled这三个属性的值是true和false)
+
+
+            4.操作标签的内容
+                innerHTML  认识标签
+                innerText  不认识标签,只添加文字
+
+            n.其他
+                取消链接的默认跳转: 在a标签的点击事件最后添加 return false; 
+                                  在a标签的href属性中添加 javascript:void(0) 兼容性
+                
+         第二天的知识:
+            1.自定义属性的操作
+                getAttribute('属性名')
+                setAttribute('属性名','属性值');
+                removeAttribute('属性名')
+
+            2.样式操作
+                1.类操作
+                    标签.className='类名'
+                2.行内样式操作
+                    标签.style.width='100px';
+                    标签.style.backgroundColor='red';
+                    如果遇到带横岗的单词属性,横岗去掉后面单词首字母大写.--驼峰命名法
+
+                3.获得焦点和失去焦点事件
+                    标签.onfocus=function(){}
+                    标签.onblur=function(){}
+
+
+         第三天知识:
+            1.DOM模拟,帮助我们了解WebAPI的内置对象是如何创建的
+                原来我们用构造函数创建对象
+                    function Person(name,sex,age){
+                        this.name = name;
+                        this.sex=sex;
+                        this.age=age;
+                    }
+                    var xiaoming = new Person('小明','男',18);
+
+                模拟DOM对象写法: options表示别人只传递一个参数过来,但是函数内部要用很多参数,所以传递一个对象
+                    function Node(options){
+                        this.name = options.name || '';
+                        this.className = options.className || '';
+                        this.id = options.id || '';
+                        this.children = options.children || [];
+                    }
+
+                    var html = new Node({
+                        name:'html',
+                        className:'box'
+                    })
+
+                    //创建过程中将实参,赋值给形参
+                        options = {
+                            name:'html',
+                            className:'box'
+                        }
+
+                        options.name
+
+                        最终得出一个结论: 对象是别人写的,我们直接用就行了.
+
+            2.节点和元素操作
+                1.节点: 包含空格和元素
+                2.元素: 元素就是标签
+
+                1.节点操作的属性和方法
+                    parentNode  父节点
+                    childNodes  所有子节点（2*i+1）
+                    firstChild  第一个子节点
+                    lastChild   最后一个字节点
+                    nextSibling 下一个兄弟节点
+                    previousSibling  上一个兄弟节点
+                    hasChildNodes() 是否有子节点
+                2.元素操作的属性和方法
+                    children 所有子元素
+                    firstElementChild  第一个子元素
+                    lastElementChild   最后一个字元素
+                    nextElementSibling 下一个兄弟元素
+                    previousElementSibling 上一个兄弟元素
+
+            3.动态创建元素
+                1.document.write() 向页面中直接插入内容,认识标签,但是不能再事件中使用.
+                2.innerHTML  创建元素,能够创建元素是因为该属性会解析标签.字符串拼接会导致性能问题.用数组解决
+                3.document.createElement('标签')  通过对象的方式创建标签,什么属性都得自己写和嵌套标签.
+
+
+            过程要去详细的做,但是要知道做的意义,有些东西只是过程,但是它并不重要.不要因为一些不重要的事情和人,
+            影响到接下来的学习和生活.
+
+            如果你觉得人生过得很混乱,需要从头再来,梳理一下.
+    
+    JS复习
+        1.变量
+            var one = 'a';
+            var myBtn = document.getElementById('btn');
+        2.数据类型和数据类型转换
+            数据类型: 数值类型,字符串类型,布尔类型,未定义类型,对象类型(数组和函数)
+            数据类型转换和检测:
+                    转数值类型: parseInt()
+                    转字符串类型: toString()
+                    转布尔类型: 隐式转换
+
+                typeof 变量 : 检测数据类型(基本数据类型检测)
+                变量 instanceof 构造函数名
+
+        3.条件判断
+            if(){
+
+            }else{
+
+            }
+            三元表达式  条件 ? 条件满足执行 : 条件不满足执行;
+            switch(常量){
+                case 常量1:
+                    表达式;
+                    break;
+                default:
+                    表达式;
+                    break;
+            }
+
+        4.循环
+            循环三个条件: 初始值 条件范围 条件增量
+            for(var i=0; i<n; i++){}
+
+            while(){}
+            do{}while()
+
+        5.函数
+            函数的声明和调用:
+                function 函数名(形参){
+
+                }
+                函数名(实参);
+            函数中的三个单词:return break; continue; 
+            函数的四种写法: 
+                命名函数: 普通函数  function 函数名(){}
+                匿名函数: function(){}
+                函数表达式: var fn = function(){}
+                自调用函数: (function(){})()
+
+        6.数组
+            数组的语法: []  var arr=[];
+            数组的长度: arr.length
+            数组的遍历: for(var i=0; i<arr.length; i++){ console.log(arr[i])}
+
+        7.对象
+            对象是啥: 是一个东西,在代码中: 表示可以存很多数据,是一个语法.
+            对象的基本语法: (属性,方法)
+                1.字面量创建
+                    var zs= {
+                        name:'张三',
+                        age:18,
+                        run:function(){}
+                    }
+
+                2.new Object()
+                    var zs = new Object();
+                    zs.name= '张三';
+                    zs.age = 18;
+                    zs.run = function(){}
+
+                3.构造函数创建
+                    function Person(name,age){
+                        this.name = name;
+                        this.age = age;
+                        this.run = function(){
+
+                        }
+                    }
+                    var zs = new Person('张三',18);
+
+            对象和JSON遍历
+                for(var k in obj){
+                    k表示属性名
+                    obj[k]表示属性值 不能使用obj.k
+                }
+
+        8.内置对象
+            Math:静态对象
+                Math.random()
+                Math.floor()
+
+                Math.ceil()
+                Math.round()
+                Math.max()
+                Math.min()
+            Date:实例对象
+                var date = new Date();  //获取当前时间
+                var date = new Date('2020-12-12 00:00:00');  //获取指定时间
+
+                转换成毫秒: 
+                    1.隐式转换(数学运算,减法)
+                    2.date.getTime()
+                    3.获取年月日,时分秒,星期
+                    4.练习: 格式化时间,倒计时
+            Array
+                push()
+                pop()
+                shift()
+                unshift()
+
+                join()
+                toString()
+                sort()
+                
+            String
+
+                substr()  截取
+                indexOf()  查找位置
+                chartAt()  获取某个字符
+                concat()   连接字符串
+                toUpperCase() 转大写
+                toLowerCase() 转小写
+
+        预解析:
+            提前解析,并执行.
+                1.变量声明提前
+                2.函数声明提前
+                3.如果变量名很函数名冲突,函数优先.
+            
+            我们写代码很严谨,都是先声明赋值以后再用.
+
+        学WebAPI的目的: 写特效.
+                1.轮播图
+                2.Tab菜单
+                3.鼠标移入移出,点击等动画
+                4.Css3动画
+                5.其他逻辑动画
+
+    
+</body>
+</html>

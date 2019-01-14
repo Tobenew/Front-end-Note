@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box">
+        <div>11111</div>        
+    </div>
+    <script>
+    var p = document.createElement('p');
+    p.innerText = 'hello';
+    p.innerText += 'world';
+    //把p元素放到DOM树中
+    var box = document.getElementById('box');
+    box.appendChild(p);
+    </script>
+</body>
+</html>

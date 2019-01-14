@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box">
+        <div>盒子</div>
+        <ul>
+            <li>列表</li>
+        </ul>
+        <span>说明性文字</span>
+    </div>
+    <script>
+        //box.firstChild  返回第一个子节点
+        //box.firstElementChild 返回第一个子元素
+        var box = document.getElementById('box');
+        console.log(box.firstChild);
+        console.log(box.firstElementChild);    
+        var ele = document.getFirstElementChild('box');
+        console.log(ele);
+        
+    </script>
+</body>
+</html>

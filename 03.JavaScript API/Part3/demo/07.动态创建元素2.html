@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="button" value="按钮" id="btn">
+    <div id="box">
+
+    </div>
+    <script>
+        var btn = document.getElementById('btn');
+        btn.onclick = function(){
+            var box = document.getElementById('box');
+            box.innerHTML = 'Hello <p>World</p>';//每次设置页面就会重新绘制页面,会产生性能问题
+        }
+
+        //优化
+        var datas = ['西施','貂蝉','凤姐','芙蓉姐姐'];
+        var btn = document.getElementById(btn);
+        btn.onclick = function () {
+            
+        }
+    </script>
+</body>
+</html>
