@@ -2,7 +2,7 @@
 
 ```
 artTemplate/template-web.js
-jquery/jquery.js
+jquery/jquery.js 
 ```
 
 html模板部分:
@@ -20,6 +20,11 @@ html模板部分:
             </a>
         </li>
 	{{/each}}
+</script>
+<script type = "text/template" id = "simpleTpl">
+//如果不用遍历,这样就行
+{{name}}
+{{age}}
 </script>
 ```
 
