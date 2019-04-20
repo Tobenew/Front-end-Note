@@ -1,106 +1,113 @@
-1.˵һ��ajax��ʵ�ֹ���
+1.说一下ajax的实现过程
 
-��1.����XMLHttpRequest����Ҳ�����첽���ö���
-    2.��������������ӣ�����һ���µ�http����ָ����HTTP����ķ�����URL����֤��Ϣ
-    3.������Ӧ��HTTP����״̬�仯�ĺ���
-    4.����http����
-    5.��ȡ�첽���÷��ص�����
-    6.ʹ��js��domʵ�־ֲ�ˢ��
+答：1.创建XMLHttpRequest对象，也就是异步调用对象
+​    2.与服务器建立连接，创建一个新的http请求并指定该HTTP请求的方法、URL及验证信息
+​    3.设置响应的HTTP请求状态变化的函数
+​    4.发送http请求
+​    5.获取异步调用返回的数据
+​    6.使用js和dom实现局部刷新
 
-2.js�����ּ��ط�ʽ
+2.js的三种加载方式
 
-��1.ͬ������
-      ͬ��ģʽ�ֳ�����ģʽ������ֹ������ĺ���������ֹͣ�����Ľ�����ֻ�е���ǰ������ɺ�ſɽ�����һ���������������js�������document���ݣ��޸�dom���ض������Ϊ���ͻ����ҳ������������һ�㽨���<script>��ǩ����<body>��β��
-    
-    2.�첽����
-      �첽�����ֽз��������أ������������ִ��js��ͬʱ����������к���ҳ��Ĵ���
-    ����һ��Script DOM Element
-            ����һ���Ե�������ʹ��dom��������һ��script��ǩ��������������ֵ(type,async,src)����ȡhead��ǩ������scriptԪ�أ�����async�����������첽֧�����ԡ����ַ�ʽ��ִ����֮ǰ����ֹonload�¼��Ĵ����������ںܶ�ҳ��Ĵ��붼��onloadʱ��ִ�ж������Ⱦ���������Ի��ǻ���������ҳ��ĳ�ʼ������
-    ��������onloadʱ���첽����
-            �Ѳ����script�ķ�������һ���������棬Ȼ�����window��onload������ִ�У������ͽ��������onload�¼�����������
-    ��������XHRע�룬ͨ��XMLRequest����ȡjavascript��Ȼ�󴴽�һ��scriptԪ�ز��뵽DOM�ṹ�С�ajax����ɹ�������script.textΪ����ɹ��󷵻ص�responseText
-   �ܽ᣺ ����֧��HTML5���������ʵ��JS���첽����ֻ��Ҫ��scriptԪ���м���async���ԣ�Ϊ�˼����ϰ汾��IE�������defer���ԣ����ڲ�֧��HTML5�������(IE������deferʵ��)�����Բ������ϼ��ַ���ʵ�֡�ԭ�������϶�����DOM��д��script����ͨ��eval����ִ��JS���룬����԰�����������������ִ�У�Ҳ������onload��ִ�У�Ҳ����ͨ��XHRע��ʵ�֣�Ҳ���Դ���һ��iframeԪ�أ�Ȼ����iframe��ִ�в���JS���롣
-    
-    3.�ӳټ���
-      js�ļ��ط�Ϊ�������֣����غ�ִ�У����������첽���ػ�����������Ҫ��ʱ����ִ�У���js������ΪImge��Object������ػ���������ͨ����ʱ����ʵ��
+答：1.同步加载
+​      同步模式又称阻塞模式，会阻止浏览器的后续处理，停止后续的解析，只有当当前加载完成后才可进行下一步操作。所以如果js中有输出document内容，修改dom，重定向等行为，就会造成页面阻塞，所以一般建议把<script>标签放在<body>结尾处
+​    
 
-3.GET��POST�����𣬺�ʱʹ��POST��
+```
+2.异步加载
+  异步加载又叫非阻塞加载，浏览器在下载执行js的同时还会继续进行后续页面的处理
+方法一：Script DOM Element
+        创建一个自调函数，使用dom操作创建一个script标签，设置它的属性值(type,async,src)，获取head标签，插入script元素，其中async属性新增的异步支持属性。这种方式在执行完之前会阻止onload事件的触发，而现在很多页面的代码都在onload时还执行额外的渲染工作，所以还是会阻塞部分页面的初始化处理
+方法二：onload时的异步加载
+        把插入的script的方法放在一个函数里面，然后放在window的onload方法里执行，这样就解决了阻塞onload事件触发的问题
+方法三：XHR注入，通过XMLRequest来获取javascript，然后创建一个script元素插入到DOM结构中。ajax请求成功后设置script.text为请求成功后返回的responseText
+```
 
-��GET��һ��������Ϣ��ȡ��ʹ��URL���ݲ������������͵���Ϣ������Ҳ������
-    POST��һ�������޸ķ������ϵ���Դ���������͵���Ϣû������
-    get������Ҫʹ��Request.QueryString����ȡ������ֵ����POST��ʽͨ��Request.Form����ȡ������ֵ��Ҳ����˵getͨ����ַ������ֵ����postͨ���ύ������ֵ
+   总结： 对于支持HTML5的浏览器，实现JS的异步加载只需要在script元素中加上async属性，为了兼容老版本的IE还需加上defer属性；对于不支持HTML5的浏览器(IE可以用defer实现)，可以采用以上几种方法实现。原理基本上都是向DOM中写入script或者通过eval函数执行JS代码，你可以把它放在匿名函数中执行，也可以在onload中执行，也可以通过XHR注入实现，也可以创建一个iframe元素，然后在iframe中执行插入JS代码。
+​    
 
-�������������ʹ��post����
-    �޷�ʹ�û����ļ�
-    ����������ʹ�������
-    ���Ͱ���δ֪�ַ����û�����
+```
+3.延迟加载
+  js的加载分为两个部分，加载和执行，可以利用异步加载缓存起来，需要的时候在执行，将js内容作为Imge或Object对象加载缓存起来，通过定时器来实现
+```
 
-4.eval����ʲô�ģ�
+3.GET和POST的区别，何时使用POST？
 
-�����Ĺ����ǰѶ�Ӧ���ַ���������js���벢����
-    Ӧ�ñ���ʹ��eval������ȫ��������
+答：GET：一般用于信息获取，使用URL传递参数，对所发送的信息的数量也有限制
+​    POST：一般用于修改服务器上的资源，对所发送的信息没有限制
+​    get方法需要使用Request.QueryString来获取变量的值，而POST方式通过Request.Form来获取变量的值，也就是说get通过地址栏来传值，而post通过提交表单传值
 
-5.ajax��ʲô���Լ���ȱ�㣿
+在以下情况中请使用post请求：
+​    无法使用缓存文件
+​    向服务器发送大量数据
+​    发送包含未知字符的用户输入
 
-��ajax���첽��js��xml��ͨ�����̨�������ݽ�����ʹ��ҳʵ���첽�ĸ��£�����ζ�Ų����¼�������ҳ��������ʵ����ҳĳ���ֵĸ���
-    �ŵ㣺��̬��ˢ��
-    ȱ�㣺ajax��֧���������back��ť
-          ajax��¶���������������ϸ�ڻ���ɰ�ȫ����
-          �����������֧�ֽ���
-          �ƻ��˳�����쳣����
-          �����׵���
+4.eval是做什么的？
 
-6.˵һ��HTTP״̬��
+答：它的功能是把对应的字符串解析成js代码并运行
+​    应该避免使用eval，不安全，耗性能
 
-��100 - ����
-    200 - ok
-    201 - ����ɹ����ҷ������������µ���Դ
-    202 - �������ѽ���������δ����
-    301 - �������ҳ�������ƶ�����λ��
-    302 - ��ʱ���ض���
-    303 - ��ʱ���ض���������ʹ��get�����µ�url
-    304 - �Դ��ϴ�������������ҳδ�޸Ĺ�
-    400 - �������޷���������ĸ�ʽ
-    401 - ����δ��Ȩ
-    403 - ��ֹ����
-    404 - �Ҳ��������url��ƥ�����Դ
-    500 - ����ķ������˴���
-    503 - ����������ʱ�޷���������
+5.ajax是什么，以及优缺点？
 
-7.һ��ҳ�������url��ҳ�������ʾ���������̶�������ʲô��
+答：ajax是异步的js和xml，通过与后台进行数据交换，使网页实现异步的更新，这意味着不重新加载整个页面的情况下实现网页某部分的更新
+​    优点：动态不刷新
+​    缺点：ajax不支持浏览器的back按钮
+​          ajax暴露了与服务器交互的细节会造成安全问题
+​          对搜索引擎的支持较弱
+​          破坏了程序的异常机制
+​          不容易调试
 
-��1.������һ��url����ʱ����������Ὺ��һ���߳��������������ͬʱ��Զ��dns������������һ��dns��ѯ������ʹ�������������Ӧ��ip��ַ
-    2.�������Զ��web������ͨ��tcp��������Э��������һ��tcp/ip���ӡ������ְ���һ��ͬ�����ģ�һ��ͬ��-Ӧ���ĺ�һ��Ӧ���ģ�������������������ͷ�����֮�䴫�ݡ������������ɿͻ��˽���ͨ�ţ����������Ӧ�𲢽��ܿͻ��˵���������ɿͻ��˷����������Ѿ������ܵı���
-    3.һ��������TCP/IP���ӣ��������ͨ����������Զ�̷���������HTTP��GET����Զ�̷������ҵ���Դ��ʹ��HTTP��Ӧ������Դ��ֵΪ200��HTTP��Ӧ״̬��ʾһ����ȷ����Ӧ
-    4.web�������ṩ��Դ���񣬿ͻ��˿�ʼ������Դ
-    ���󷵻غ�����������html����dom tree����λ����css����cssrule tree����js���Ը���dom api����dom
+6.说一下HTTP状态码
 
-8.ʲô�ǿ��������Լ����ʵ�ֿ�������
+答：100 - 继续
+​    200 - ok
+​    201 - 请求成功并且服务器创建了新的资源
+​    202 - 服务器已接受请求但尚未处理
+​    301 - 请求的网页已永久移动到新位置
+​    302 - 临时性重定向
+​    303 - 临时性重定向，且总是使用get请求新的url
+​    304 - 自从上次请求后，请求的网页未修改过
+​    400 - 服务器无法理解请求的格式
+​    401 - 请求未授权
+​    403 - 禁止访问
+​    404 - 找不到如何与url相匹配的资源
+​    500 - 最常见的服务器端错误
+​    503 - 服务器端暂时无法处理请求
 
-�������������ͬԴ���ԣ����Ƿ��������url��Э�飬�������˿�����֮������һ�뵱ǰҳ���ַ��ͬ��Ϊ����
-    ͬԴ���ԣ�ͬԴ����ָ������Э�飬�˿���ͬ����һ�������������tabҳ��������ͬԴ��ҳ�棬ִ��һ��ҳ��Ľű�ʱ�ͻ�������ű��������ĸ�ҳ��ģ�ֻ����ű�ͬԴ��ҳ��Żᱻִ��
-    ����1������ͨ��ajax�ķ���ȥ����ͬԴ�е��ĵ�
-    ����2��������в�ͬ��Ŀ��֮�䲻�ܽ���js�Ľ�������
-    1.ͨ��jsonp����
-      ͨ��script��ǩ����һ��js�ļ�������ļ�����ɹ����ִ��������url������ָ���ĺ��������һ��������Ҫ��json������Ϊ�������롣����jsonp����Ҫ�������˵�ҳ�������Ӧ����ϵ�
-      ��jquery��ʹ��$getJSON�����Զ��ж��Ƿ���򣬲�����͵�����ͨ��ajax����������Ļ�ʹ���첽����js�ļ�����ʽ������jsonp�Ļص�����
-    2.ͨ���޸�document.domain��������
-      ������ҳ���document.domain���ó����������һ���ĸ��������������ͬ��ֻ�����ڲ�ͬ����Ŀ�ܼ�Ľ����������ͨ��ajax�ķ���ȥ�벻ͬ�����ҳ�潻����һ�����ص�iframe����һ�������������iframeȥ����ajax���������Ϳ��Ի������
-    3.ʹ��window.name�����п���
-      ������a,b����ҳ�棬a��Ҫ��ȡbҳ������ݣ���bҳ���window.name����һ��a��Ҫ��ȡ�����ݣ�Ȼ����aҳ����ʹ��һ�����ص�iframe���䵱һ���м��˽�ɫ����iframe��src�޸�Ϊbҳ���url����iframeȥ��ȡdata.html�����ݣ�Ȼ��a��ȥ�õ�b���������
-    4.ʹ��h5������postMessage��������Ϣ
+7.一个页面从输入url到页面加载显示完成这个过程都发生了什么？
 
-9.����ҳ����ν��н�����
+答：1.当发送一个url请求时，浏览器都会开启一个线程来处理这个请求，同时在远程dns服务器上启动一个dns查询，这能使浏览器获得请求对应的ip地址
+​    2.浏览器与远程web服务器通过tcp三次握手协议来建立一个tcp/ip连接。该握手包括一个同步报文，一个同步-应答报文和一个应答报文，这三个报文在浏览器和服务器之间传递。该握手首先由客户端建立通信，而后服务器应答并接受客户端的请求，最后由客户端发出该请求已经被接受的报文
+​    3.一旦建立了TCP/IP连接，浏览器会通过该连接向远程服务器发送HTTP的GET请求。远程服务器找到资源并使用HTTP响应返回资源，值为200的HTTP响应状态表示一个正确的响应
+​    4.web服务器提供资源服务，客户端开始下载资源
+​    请求返回后，浏览器会解析html生成dom tree，其次会根据css生成cssrule tree，而js可以根据dom api操作dom
 
-��1.���a��b��ͬ�������£�ͨ��web�洢�������������ݣ����a��b��Ƕ�׵Ļ�����ֱ��ʹ�ýű���ȡ�Է�������
-    2.���a��b��ͬ��ʹ�ÿ�������
-      
-10.setTimeout��setTimeinterval��ʲô����
+8.什么是跨域请求，以及如何实现跨域请求？
 
-��1.setTimeout(code,millisec)
-      ������ָ���ĺ���������ú�����������ʽ
-      ʹ��clearTimenout()��ֹ
-    2.setTimeinterval(code,millisec[,"lang"])
-      �ɰ���ָ�������������ú�����������ʽ
+答：由于浏览器的同源策略，凡是发送请求的url的协议，域名，端口三者之间任意一与当前页面地址不同即为跨域
+​    同源策略：同源就是指域名，协议，端口相同，当一个浏览器的两个tab页打开两个不同源的页面，执行一个页面的脚本时就会检查这个脚本是属于哪个页面的，只有与脚本同源的页面才会被执行
+​    限制1：不能通过ajax的方法去请求不同源中的文档
+​    限制2：浏览器中不同域的框架之间不能进行js的交互操作
+​    1.通过jsonp跨域
+​      通过script标签引入一个js文件，这个文件载入成功后会执行我们在url参数中指定的函数，并且会把我们需要的json数据作为参数传入。所以jsonp是需要服务器端的页面进行相应的配合的
+​      在jquery中使用$getJSON方法自动判断是否跨域，不跨域就调用普通的ajax方法；跨域的话使用异步加载js文件的形式来调用jsonp的回调函数
+​    2.通过修改document.domain来跨子域
+​      将两个页面的document.domain设置成自身或更高一级的父域，且主域必须相同，只适用于不同子域的框架间的交互，如果想通过ajax的方法去与不同子域的页面交互用一个隐藏的iframe来做一个代理，让这个iframe去发送ajax请求，这样就可以获得数据
+​    3.使用window.name来进行跨域
+​      比如有a,b两个页面，a想要获取b页面的数据，把b页面的window.name设置一个a想要获取的数据，然后在a页面中使用一个隐藏的iframe来充当一个中间人角色，将iframe的src修改为b页面的url，由iframe去获取data.html的数据，然后a再去得到b里面的数据
+​    4.使用h5新增的postMessage来传递信息
+
+9.两个页面如何进行交互？
+
+答：1.如果a和b是同域的情况下，通过web存储技术来交换数据，如果a，b是嵌套的话可以直接使用脚本读取对方的数据
+​    2.如果a，b不同域使用跨域请求
+​      
+10.setTimeout和setTimeinterval有什么区别？
+
+答：1.setTimeout(code,millisec)
+​      用于在指定的毫秒数后调用函数或计算表达式
+​      使用clearTimenout()终止
+​    2.setTimeinterval(code,millisec[,"lang"])
+​      可按照指定的周期来调用函数或计算表达式
 
    
